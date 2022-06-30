@@ -8,6 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
 
 @Service
 public class VagasEstacionamentoService {
@@ -29,8 +33,16 @@ public class VagasEstacionamentoService {
         return vagasEstacionamentoRepository.existsByPlacaCarro(placaCarro);
     }
 
-   /* public boolean existsByPlacaCarro(String placaCarro){ return vagasEstacionamentoRepository.existsByPlacaCarro(placaCarro);}
-    public boolean existsByNumeroVaga(Object numeroVaga) { return vagasEstacionamentoRepository.existsByNumeroVaga(numeroVaga); }
-    public boolean existsByApartamentoBloco(Object apartamento, Object bloco) {
-        return vagasEstacionamentoRepository.existsByApartamentoBloco(apartamento, bloco) ;}*/
+    public boolean existsByNumeroVaga(String numeroVaga) { return vagasEstacionamentoRepository.existsByNumeroVaga(numeroVaga); }
+
+    public boolean existsByApartamentoAndBloco(String apartamento, String bloco) { return vagasEstacionamentoRepository.existsByApartamentoAndBloco(apartamento,bloco); }
+
+    public List<VagasEstacionamentoModelo> findAll(){ return vagasEstacionamentoRepository.findAll(); }
+
+    public Optional<VagasEstacionamentoModelo> findById(UUID id) { return vagasEstacionamentoRepository.findById(id); }
+
+    @Transactional
+    public void delete(VagasEstacionamentoModelo vagasEstacionamentoModelo) {
+        vagasEstacionamentoRepository.delete(vagasEstacionamentoModelo);
+    }
 }
