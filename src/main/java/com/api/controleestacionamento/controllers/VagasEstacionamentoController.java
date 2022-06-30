@@ -84,8 +84,7 @@ public class VagasEstacionamentoController {
         vagasEstacionamentoModelo.setResponsavelNome(vagasEstacionamentoDto.getResponsavelNome());
         vagasEstacionamentoModelo.setApartamento(vagasEstacionamentoDto.getApartamento());
         vagasEstacionamentoModelo.setBloco(vagasEstacionamentoDto.getBloco());
-        return ResponseEntity.status(HttpStatus.OK).body("As informações da vaga foram atualizadas com sucesso ! ");
+        return ResponseEntity.status(HttpStatus.OK).body(vagasEstacionamentoService.save(vagasEstacionamentoModelo));
     }
-
 
 }
