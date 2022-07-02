@@ -5,6 +5,8 @@ import com.api.controleestacionamento.repository.VagasEstacionamentoRepository;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,12 +39,15 @@ public class VagasEstacionamentoService {
 
     public boolean existsByApartamentoAndBloco(String apartamento, String bloco) { return vagasEstacionamentoRepository.existsByApartamentoAndBloco(apartamento,bloco); }
 
-    public List<VagasEstacionamentoModelo> findAll(){ return vagasEstacionamentoRepository.findAll(); }
+    public Page<VagasEstacionamentoModelo> findAll(Pageable pageable){
+        return vagasEstacionamentoRepository.findAll(pageable); }
 
-    public Optional<VagasEstacionamentoModelo> findById(UUID id) { return vagasEstacionamentoRepository.findById(id); }
+    public Optional<VagasEstacionamentoModelo> findById(UUID id) {
+        return vagasEstacionamentoRepository.findById(id); }
 
     @Transactional
     public void delete(VagasEstacionamentoModelo vagasEstacionamentoModelo) {
         vagasEstacionamentoRepository.delete(vagasEstacionamentoModelo);
     }
+
 }
