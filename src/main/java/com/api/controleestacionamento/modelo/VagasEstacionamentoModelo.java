@@ -30,8 +30,8 @@ public class VagasEstacionamentoModelo implements Serializable {
     private String modeloCarro;
     @Column(nullable = false, length = 70)
     private String corCarro;
-//    @Column(nullable = false)
-//    private LocalDateTime dataDoRegistro;
+    @Column(nullable = false)
+    private LocalDateTime localDateTime;
     @Column(nullable = false, length = 130)
     private String responsavelNome;
     @Column(nullable = false, length = 30)
@@ -39,14 +39,8 @@ public class VagasEstacionamentoModelo implements Serializable {
     @Column(nullable = false, length = 30)
     private String bloco;
 
-   // private LocalDateTime registrationDate;
 
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public UUID getId() {
+      public UUID getId() {
         return id;
     }
 
@@ -94,6 +88,14 @@ public class VagasEstacionamentoModelo implements Serializable {
         this.corCarro = corCarro;
     }
 
+    public LocalDateTime getLocalDateTime() {
+        return localDateTime;
+    }
+
+    public void setLocalDateTime(LocalDateTime localDateTime) {
+        this.localDateTime = localDateTime;
+    }
+
     public String getResponsavelNome() {
         return responsavelNome;
     }
@@ -129,7 +131,7 @@ public class VagasEstacionamentoModelo implements Serializable {
                 marcaCarro.equals(that.marcaCarro) &&
                 modeloCarro.equals(that.modeloCarro) &&
                 corCarro.equals(that.corCarro) &&
-//                dataDoRegistro.equals(that.dataDoRegistro) &&
+                localDateTime.equals(that.localDateTime) &&
                 responsavelNome.equals(that.responsavelNome) &&
                 apartamento.equals(that.apartamento) &&
                 bloco.equals(that.bloco);
@@ -137,9 +139,7 @@ public class VagasEstacionamentoModelo implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, numeroVaga, placaCarro, marcaCarro, modeloCarro, corCarro, responsavelNome, apartamento, bloco);
+        return Objects.hash(id, numeroVaga, placaCarro, marcaCarro, modeloCarro, corCarro, localDateTime, responsavelNome, apartamento, bloco);
     }
-
-
 
 }
