@@ -2,19 +2,17 @@ package com.api.controleestacionamento.services;
 
 import com.api.controleestacionamento.modelo.VagasEstacionamentoModelo;
 import com.api.controleestacionamento.repository.VagasEstacionamentoRepository;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-
+@RequiredArgsConstructor
 @Service
 public class VagasEstacionamentoService {
 
